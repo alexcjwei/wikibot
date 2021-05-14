@@ -24,7 +24,7 @@ class Node:
   def get_path(self):
     if not self.parent:
       return f'{self.name}'
-    return f'{self.name} --> {self.parent.get_path()}'
+    return f'{self.name} -> {self.parent.get_path()}'
 
   def set_parent(self, parent):
     self.parent = parent

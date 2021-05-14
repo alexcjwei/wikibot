@@ -2,23 +2,18 @@ from Wikibot import Wikibot
 from time import time
 
 def main():
-  # start = 'https://en.wikipedia.org/wiki/Die_Hard'
-  # end = 'https://en.wikipedia.org/wiki/Gautama_Buddha'
-  start = 'die hard'
-  # end = 'action film'
-  end = 'protagonist'
-  # die hard --> action film --> protagonist
-  w = Wikibot(start, end, 'biBFS')
-  print(f'{start} -> {end}')
-  start = time()
-  w.run()
-  end = time()
-  print(f'Search time: {end-start}')
-  w.print_path()
+  w = Wikibot()
+  while (True):
+    start = input('Start title: ')
+    end = input('Goal title: ')
+    w.set_game(start, end)
 
+    begin = time()
+    w.run()
+    done = time()
 
-  # grow start
-  # for each child of start, grow child
+    print(f'Search time: {done - begin}')
+    print(f'Shortest path: {w.get_path()}')
 
 
 if __name__ == '__main__':
